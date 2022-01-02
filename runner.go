@@ -101,7 +101,7 @@ func (r *Runner) processResult(result *Result) {
 		errors := 0
 		for _, res := range r.results[result.group] {
 			if res.err != nil {
-				r.debug(fmt.Sprintf("Error in response: %v", res.err))
+				r.debug(fmt.Sprintf("Error in response: %v\n", res.err))
 				errors++
 				continue
 			}
@@ -114,7 +114,7 @@ func (r *Runner) processResult(result *Result) {
 
 		codeStrs := ""
 		for code, num := range codes {
-			codeStrs += fmt.Sprintf(" Code %d: %d (%.0f%%)", code, num, float64(num)/float64(total)*100)
+			codeStrs += fmt.Sprintf(" %d: %d (%.0f%%)", code, num, float64(num)/float64(total)*100)
 		}
 
 		errPerc := float64(errors) / float64(total) * 100
